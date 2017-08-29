@@ -1,0 +1,112 @@
+/* ------ MAIN ------ */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: transparent;
+	background-image: url("../images/bg_01.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+}
+
+
+/* ------ CONTAINER ------ */
+
+div.container {
+	position: static;
+	overflow: auto;
+	max-width: 960px;
+	margin: 50px auto 0 auto;
+	height: 100vh;
+}
+
+
+/* ------ GAME AREA ------ */
+
+div#game-area {
+	display: block;
+	justify-content: space-around;
+	min-height: 400px;
+	overflow: auto;
+	background: darkmagenta;
+	padding: 50px;
+}
+
+div#game-area>* {
+	text-align: center;
+	margin: 25px 0;
+}
+
+
+/* ------ CHARACTER SELECTION ------ */
+
+#character-select {
+	width: 100%;
+	display: block;
+}
+
+
+/* .characters {
+	display: flex;
+	justify-content: space-between;
+}
+*/
+
+#character-select h1 {
+	text-align: center;
+	padding: 10px 0;
+}
+
+.character {
+	width: 180px;
+	height: 180px;
+	display: inline-block;
+}
+
+.character.drax {
+	background: url("../images/drax.png") left center;
+	background-size: auto 100%;
+	animation: play 3.5s steps(21) infinite;
+	filter: contrast(125%);
+}
+
+.character.gamora {
+	background: url("../images/gamora.png") left center;
+	background-size: auto 100%;
+	animation: play 3.5s steps(21) infinite;
+	filter: contrast(125%);
+}
+
+.character.groot {
+	background: url("../images/groot.png") left center;
+	background-size: auto 100%;
+	animation: play 3.5s steps(21) infinite;
+	filter: contrast(125%);
+}
+
+.character.rocket {
+	background: url("../images/rocket.png") left center;
+	background-size: auto 100%;
+	animation: play 3.5s steps(21) infinite;
+	filter: contrast(125%);
+}
+
+.character.starlord {
+	background: url("../images/starlord.png") left center;
+	background-size: auto 100%;
+	animation: play 3.5s steps(21) infinite;
+	filter: contrast(125%);
+}
+
+
+/* ------ KEYFRAME ANIMATIONS ------ */
+
+@keyframes play {
+	100% {
+		background-position: -3780px;
+	}
+}
