@@ -2,7 +2,7 @@
 RPG game homework
 
 ## Animating Characters 
-<img src="assets/images/character_gif_psd/rocket.gif" width="150">
+<img src="https://raw.githubusercontent.com/jeffreylowy/guardians-of-the-galaxy-rpg/master/assets/images/character_gif_psd/rocket.gif" width="150">
 
 
 
