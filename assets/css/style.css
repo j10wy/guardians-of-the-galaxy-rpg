@@ -1,16 +1,53 @@
-/* ------ MAIN ------ */
+/* ------ KEYFRAME ANIMATIONS ------ */
+
+@keyframes play {
+	100% {
+		background-position: -6000px;
+	}
+}
+
+@keyframes slide-left-to-right {
+	0% {
+		left: -100px;
+	}
+	100% {
+		left: 0px;
+	}
+}
+
+@keyframes slide-right-to-left {
+	0% {
+		right: -100px;
+	}
+	100% {
+		right: 0px;
+	}
+}
+
+
+/* ------ FONTS------ */
+
+@font-face {
+	font-family: 'RoadRage';
+	src: url('../fonts/RoadRage.eot');
+	src: url('../fonts/RoadRage.woff2') format('woff2'), url('../fonts/RoadRage.woff') format('woff'), url('../fonts/RoadRage.ttf') format('truetype'), url('../fonts/RoadRage.svg#RoadRage') format('svg'), url('../fonts/RoadRage.eot?#iefix') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Guardians';
+	src: url('../fonts/Guardians.eot');
+	src: url('../fonts/Guardians.woff2') format('woff2'), url('../fonts/Guardians.woff') format('woff'), url('../fonts/Guardians.ttf') format('truetype'), url('../fonts/Guardians.svg#Guardians') format('svg'), url('../fonts/Guardians.eot?#iefix') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* ------ HTML & BODY ------ */
 
 * {
 	box-sizing: border-box;
-}
-
-body {
-	background: transparent;
-	background-image: url("../images/bg_01.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	height: 100vh;
 }
 
 
@@ -19,94 +56,243 @@ body {
 div.container {
 	position: static;
 	overflow: auto;
-	max-width: 960px;
-	margin: 50px auto 0 auto;
+	background: transparent;
+	background-size: cover;
+	background-position: center;
+	background-image: url("../images/bg.jpg");
 	height: 100vh;
+	z-index: 0;
+}
+
+
+/* ------ PRELOAD GIFS ------ */
+
+div.preload {
+	display: none;
+}
+
+
+/* ------ SELECT AREA ------ */
+
+div#logo {
+	max-width: 960px;
+	text-align: center;
+	margin: 25px auto;
+}
+
+div#logo img {
+	width: 36%;
+}
+
+
+/* ------ CHARACTER AREA ------ */
+
+div#character-area {
+	display: none;
+	max-width: 960px;
+	margin: 0 auto 25px auto;
+	justify-content: space-between;
+}
+
+
+/* ------ CHARACTERS ------ */
+
+div.character {
+	position: relative;
+	border: 1px solid black;
+	flex: 1;
+	height: 180px;
+	text-align: center;
+	background-size: cover;
+	background-position: center;
+	filter: contrast(110%);
+	transition: flex 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	overflow: hidden;
+}
+
+div.character:hover {
+	flex: 2;
+	cursor: pointer;
+}
+
+div.character:hover:before {
+	content: var(--name);
+	font-family: "RoadRage";
+	font-size: 36px;
+	margin: 5px 15px;
+	color: rgba(255, 0, 0, .7);
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	animation: slide-left-to-right 200ms ease-in;
+}
+
+div.character:hover:after {
+	content: var(--hp);
+	font-family: "Guardians";
+	font-size: 24px;
+	margin: 5px 10px;
+	color: rgba(255, 255, 255, .7);
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	animation: slide-right-to-left 200ms ease-in;
+}
+
+div.character.drax {
+	--name: "Drax";
+	--hp: "HP:150";
+	background-image: url("../images/drax.jpg");
+}
+
+div.character.drax:hover {
+	background-image: url("../images/drax.gif");
+}
+
+div.character.gamora {
+	--name: "Gamora";
+	--hp: "HP:150";
+	background-image: url("../images/gamora.jpg");
+}
+
+div.character.gamora:hover {
+	background-image: url("../images/gamora.gif");
+}
+
+div.character.groot {
+	--name: "Groot";
+	--hp: "HP:150";
+	background-image: url("../images/groot.jpg");
+}
+
+div.character.groot:hover {
+	background-image: url("../images/groot.gif");
+}
+
+div.character.rocket {
+	--name: "Rocket";
+	--hp: "HP:150";
+	background-image: url("../images/rocket.jpg");
+}
+
+div.character.rocket:hover {
+	background-image: url("../images/rocket.gif");
+}
+
+div.character.starlord {
+	--name: "Starlord";
+	--hp: "HP:150";
+	background-image: url("../images/starlord.jpg");
+}
+
+div.character.starlord:hover {
+	background-image: url("../images/starlord.gif");
 }
 
 
 /* ------ GAME AREA ------ */
 
 div#game-area {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+div.playerone,
+div.playertwo {
+	flex: 1;
+	position: relative;
+}
+
+div.playerone span,
+div.playertwo span {
 	display: block;
-	justify-content: space-around;
-	min-height: 400px;
-	overflow: auto;
-	background: darkmagenta;
-	padding: 50px;
+	width: 300px;
+	height: 300px;
+	position: relative;
+	margin: 0 auto;
+	background-color: rgba(0, 199, 236, 0.5);
+	background: url('../images/starlord.png') left center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	filter: contrast(110%);
+	animation: play 2.7s steps(20) infinite;
 }
 
-div#game-area>* {
-	text-align: center;
-	margin: 25px 0;
+div.playertwo {
+	transform: scaleX(-1);
 }
 
-
-/* ------ CHARACTER SELECTION ------ */
-
-#character-select {
+div.messages,
+div.attack {
 	width: 100%;
 	display: block;
-}
-
-
-/* .characters {
-	display: flex;
-	justify-content: space-between;
-}
-*/
-
-#character-select h1 {
 	text-align: center;
-	padding: 10px 0;
+	padding: 10px 0 0 0;
 }
 
-.character {
-	width: 180px;
-	height: 180px;
+div.message {
+	font-family: "Guardians";
+	text-align: center;
+	font-size: 24px;
+	padding: 20px;
+	width: 50vw;
+	margin: 0 auto;
+	display: block;
+	height: auto;
+	color: rgba(255, 255, 255, .8);
+	background: rgba(0, 0, 0, .7);
+}
+
+.button {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 300;
+	font-size: 30px;
 	display: inline-block;
+	position: relative;
+	text-align: center;
+	color: #00c7ec;
+	border: 1px solid #00c7ec;
+	border-radius: 5px;
+	line-height: 2em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	box-shadow: 0 0 0 0 transparent;
+	transition: all 0.2s ease-in;
+	margin: 0 auto;
 }
 
-.character.drax {
-	background: url("../images/drax.png") left center;
-	background-size: auto 100%;
-	animation: play 3.5s steps(21) infinite;
-	filter: contrast(125%);
+.button:hover {
+	color: white;
+	box-shadow: 0 0 30px 0 rgba(0, 199, 236, 0.5);
+	background-color: #00c7ec;
+	transition: all 0.2s ease-out;
 }
 
-.character.gamora {
-	background: url("../images/gamora.png") left center;
-	background-size: auto 100%;
-	animation: play 3.5s steps(21) infinite;
-	filter: contrast(125%);
+.button:hover:before {
+	animation: shine 0.5s 0s linear;
 }
 
-.character.groot {
-	background: url("../images/groot.png") left center;
-	background-size: auto 100%;
-	animation: play 3.5s steps(21) infinite;
-	filter: contrast(125%);
+.button:active {
+	box-shadow: 0 0 0 0 transparent;
+	transition: box-shadow 0.2s ease-in;
 }
 
-.character.rocket {
-	background: url("../images/rocket.png") left center;
-	background-size: auto 100%;
-	animation: play 3.5s steps(21) infinite;
-	filter: contrast(125%);
-}
-
-.character.starlord {
-	background: url("../images/starlord.png") left center;
-	background-size: auto 100%;
-	animation: play 3.5s steps(21) infinite;
-	filter: contrast(125%);
-}
-
-
-/* ------ KEYFRAME ANIMATIONS ------ */
-
-@keyframes play {
-	100% {
-		background-position: -3780px;
-	}
+.button:before {
+	content: '';
+	display: block;
+	width: 0px;
+	height: 86%;
+	position: absolute;
+	top: 7%;
+	left: 0%;
+	opacity: 0;
+	background: white;
+	box-shadow: 0 0 15px 3px white;
+	transform: skewX(-20deg);
 }

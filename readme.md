@@ -4,11 +4,15 @@ RPG game homework
 ## Animating Characters 
 <img src="https://raw.githubusercontent.com/jeffreylowy/guardians-of-the-galaxy-rpg/master/assets/images/character_gif_psd/rocket.gif" width="150">
 
-
-
 ## Resources
 [CSS Tricks - A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
-[CSS Sprite Sheet Animations with steps()](http://blog.teamtreehouse.com/css-sprite-sheet-animations-steps)
+[Treehouse - CSS Sprite Sheet Animations with steps()](http://blog.teamtreehouse.com/css-sprite-sheet-animations-steps)
 
 [MDN - background-size](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)
+
+[Stack Overflow - $(window).on("load")](https://stackoverflow.com/questions/544993/official-way-to-ask-jquery-wait-for-all-images-to-load-before-executing-somethin)
+
+[TypeIt - jQuery typing plugin](https://macarthur.me/typeit/)
+
+[Codepen - Shiny button effect](https://codepen.io/nw/pen/GqBzJ?limit=all&page=10&q=button)

@@ -6,28 +6,48 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Guardians of the Galaxy RPG</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	    crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
+	<script src="assets/js/rpg.js"></script>
 </head>
 
 <body>
 	<div class="container">
-		<div id="character-select">
-			<h1 id="select-title">Select a Character</h1>
-			<div class="characters">
-				<div class="character drax">Drax</div>
-				<div class="character gamora">Gamora</div>
-				<div class="character groot">Groot</div>
-				<div class="character rocket">Rocket</div>
-				<div class="character starlord">Starlord</div>
-			</div>
+		<div id="logo">
+			<img src="assets/images/logo.png" alt="Guardians of the Galaxy RPG">
+		</div>
+		<div id="character-area">
+			<div class="character drax"></div>
+			<div class="character gamora"></div>
+			<div class="character groot"></div>
+			<div class="character rocket"></div>
+			<div class="character starlord"></div>
 		</div>
 		<div id="game-area">
-			<div class="player">Player</div>
-			<div class="cpu">CPU</div>
-			<div id="messages">Messages</div>
+			<div class="messages">
+				<div class="message">Loading...</div>
+			</div>
+			<div class="playerone">
+				<span></span>
+			</div>
+			<div class="playertwo">
+					<span></span>
+			</div>
+			<div class="attack">
+				<a href="#" class="button">Attack!</a>
+			</div>
 		</div>
+	</div>
+	<div class="preload">
+		<img src="assets/images/drax.gif">
+		<img src="assets/images/gamora.gif">
+		<img src="assets/images/groot.gif">
+		<img src="assets/images/rocket.gif">
+		<img src="assets/images/rocket.gif">
 	</div>
 </body>
 
