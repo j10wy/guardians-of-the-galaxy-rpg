@@ -1,0 +1,3 @@
+- First select a character
+- Highlight in green
+- Remaining characters become enemies
