@@ -4,10 +4,6 @@
 
 [PLAY](https://jeffreylowy.github.io/guardians-of-the-galaxy-rpg/)
 
-## $(document).on(ready) & $(window).on("load")
-I use document/ready to overwrite some basic HTML in the page, then load the gifs. I created gifs using clips form the Guardians of the Galaxy trailer. The loading screen should disappear once the window has loaded. window/load handles the remainder of the page setup, then calls the chooseCharacter method.
-
-
 ## Choosing a character
 
 I organized the game code as an object - everything lives under the rpg object. The game begins once two characters have been chosen by the user. For the interface, I used flexbox to layout the character images, I then listen for a transition on the flex property for each character. The background images are initially set as a jpg, then swapped for the gif version when the user hovers.
