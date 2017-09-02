@@ -6,6 +6,12 @@
 	}
 }
 
+@keyframes play-groot {
+	100% {
+		background-position: -5400px;
+	}
+}
+
 @keyframes slide-left-to-right {
 	0% {
 		left: -100px;
@@ -21,6 +27,18 @@
 	}
 	100% {
 		right: 0px;
+	}
+}
+
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+	50% {
+		transform: scale3d(1.05, 1.05, 1.05);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
 	}
 }
 
@@ -91,7 +109,7 @@ div#character-area {
 	display: none;
 	max-width: 960px;
 	margin: 0 auto 25px auto;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 
 
@@ -99,8 +117,8 @@ div#character-area {
 
 div.character {
 	position: relative;
-	border: 1px solid black;
 	flex: 1;
+	max-width: 320px;
 	height: 180px;
 	text-align: center;
 	background-size: cover;
@@ -141,53 +159,53 @@ div.character:hover:after {
 	animation: slide-right-to-left 200ms ease-in;
 }
 
-div.character.drax {
+div.character#drax {
 	--name: "Drax";
-	--hp: "HP:150";
+	--hp: "HP:225";
 	background-image: url("../images/drax.jpg");
 }
 
-div.character.drax:hover {
+div.character#drax:hover {
 	background-image: url("../images/drax.gif");
 }
 
-div.character.gamora {
+div.character#gamora {
 	--name: "Gamora";
 	--hp: "HP:150";
 	background-image: url("../images/gamora.jpg");
 }
 
-div.character.gamora:hover {
+div.character#gamora:hover {
 	background-image: url("../images/gamora.gif");
 }
 
-div.character.groot {
+div.character#groot {
 	--name: "Groot";
-	--hp: "HP:150";
+	--hp: "HP:120";
 	background-image: url("../images/groot.jpg");
 }
 
-div.character.groot:hover {
+div.character#groot:hover {
 	background-image: url("../images/groot.gif");
 }
 
-div.character.rocket {
+div.character#rocket {
 	--name: "Rocket";
-	--hp: "HP:150";
+	--hp: "HP:100";
 	background-image: url("../images/rocket.jpg");
 }
 
-div.character.rocket:hover {
+div.character#rocket:hover {
 	background-image: url("../images/rocket.gif");
 }
 
-div.character.starlord {
+div.character#starlord {
 	--name: "Starlord";
-	--hp: "HP:150";
+	--hp: "HP:190";
 	background-image: url("../images/starlord.jpg");
 }
 
-div.character.starlord:hover {
+div.character#starlord:hover {
 	background-image: url("../images/starlord.gif");
 }
 
@@ -201,33 +219,48 @@ div#game-area {
 	margin: 0 auto;
 }
 
-div.playerone,
-div.playertwo {
+div.player.one,
+div.player.two {
 	flex: 1;
 	position: relative;
+	--drax: play 3.5s steps(20) 1;
+	--gamora: play 2.3s steps(20) 1;
+	--groot: play 2.7s steps(20) 1;
+	--rocket: play 2.7s steps(20) 1;
+	--starlord: play 2.7s steps(20) 1;
 }
 
-div.playerone span,
-div.playertwo span {
-	display: block;
+div.player.one span,
+div.player.two span {
+	display: none;
 	width: 300px;
 	height: 300px;
 	position: relative;
 	margin: 0 auto;
-	background-color: rgba(0, 199, 236, 0.5);
-	background: url('../images/starlord.png') left center;
-	background-size: cover;
-	background-repeat: no-repeat;
 	filter: contrast(110%);
-	animation: play 2.7s steps(20) infinite;
 }
 
-div.playertwo {
+div.player.two {
 	transform: scaleX(-1);
 }
 
+div.player span.drax-animation {
+	animation: play 3.5s steps(20);
+}
+
+div.player span.groot-animation {
+	animation: play-groot 2.3s steps(18);
+}
+
+span.gamora-animation,
+span.rocket-animation,
+span.starlord-animation {
+	animation: play 2.7s steps(20);
+}
+
 div.messages,
-div.attack {
+div.attack,
+div.reset {
 	width: 100%;
 	display: block;
 	text-align: center;
@@ -237,7 +270,8 @@ div.attack {
 div.message {
 	font-family: "Guardians";
 	text-align: center;
-	font-size: 24px;
+	font-size: 20px;
+	line-height: 40px;
 	padding: 20px;
 	width: 50vw;
 	margin: 0 auto;
@@ -247,13 +281,20 @@ div.message {
 	background: rgba(0, 0, 0, .7);
 }
 
+div.message span.action {
+	color: red;
+}
+
+
+/* ------ ATTACK BUTTON ------ */
+
 .button {
 	text-decoration: none;
 	text-transform: uppercase;
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 300;
 	font-size: 30px;
-	display: inline-block;
+	display: none;
 	position: relative;
 	text-align: center;
 	color: #00c7ec;
@@ -274,7 +315,7 @@ div.message {
 	transition: all 0.2s ease-out;
 }
 
-.button:hover:before {
+.button:hover:before:hover {
 	animation: shine 0.5s 0s linear;
 }
 
