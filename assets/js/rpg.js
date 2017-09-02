@@ -53,7 +53,7 @@ $(document).ready(function () {
 	$('.message').empty();
 
 	// Display a loading message while the window continues to load
-	rpg.message('LOADING...');
+	rpg.message('LOADING...', 60);
 
 	// Call new game to load add the gifs to the document
 	rpg.newGame();
@@ -97,7 +97,7 @@ rpg.newGame = function () {
 
 	});
 
-	rpg.message('<span style="color:red;">Select</span> a character...');
+	rpg.message(['<span style="color:red;">Select</span> a character...'],60);
 
 	$("div#character-area").css({
 		"display": "flex"
@@ -123,7 +123,7 @@ rpg.chooseCharacter = function (characterId) {
 		// Update the player area
 		$('div.player.one span').css(rpg.buildCssObj(rpg.settings.player));
 		$("#" + characterId).remove();
-		rpg.message('<span style="color:red;">Select</span> an enemy...');
+		rpg.message(['<span style="color:red;">Select</span> an enemy...'],60);
 		rpg.arrayPop(rpg.settings.player);
 
 	} else if (rpg.settings.player && !rpg.settings.cpu) {
@@ -144,7 +144,7 @@ rpg.chooseCharacter = function (characterId) {
 rpg.message = function (messageArray, speed) {
 	$('.message').typeIt({
 		strings: messageArray,
-		speed: 60,
+		speed: speed,
 		breakLines: false,
 		autoStart: false
 	});
