@@ -75,7 +75,7 @@ $(window).on("load", function () {
 	});
 
 	$('a.reset-button').on("click", function () {
-		location.reload(forceGet);
+		location.reload(true);
 	});
 
 });
