@@ -58,9 +58,6 @@ $(document).ready(function () {
 	// Call new game to load add the gifs to the document
 	rpg.newGame();
 
-});
-
-$(window).on("load", function () {
 	$('div#character-area').css({
 		"display": "flex"
 	});
