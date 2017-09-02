@@ -66,8 +66,10 @@ $(window).on("load", function () {
 	});
 
 	$('div.character').on("click", function () {
+		
 		var character = $(this).attr("id");
 		rpg.chooseCharacter(character);
+		console.log(character)
 	});
 
 	$('a.attack-button').on("click", function () {
