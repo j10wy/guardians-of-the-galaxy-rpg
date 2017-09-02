@@ -223,6 +223,10 @@ rpg.attack = function () {
 			"display": "inline-block"
 		});
 
+		rpg.settings.player = null;
+		rpg.settings.cpu = null;
+		rpg.settings.playing = false;
+
 	} else if (rpg.characters[rpg.settings.cpu].hp <= 0) {
 		rpg.arrayPop(rpg.settings.cpu);
 
@@ -235,6 +239,10 @@ rpg.attack = function () {
 			$(".attack-button").css({
 				"display": "none"
 			});
+
+			rpg.settings.player = null;
+			rpg.settings.cpu = null;
+			rpg.settings.playing = false;
 
 		} else {
 			rpg.message(['<span class="action">You win!</span>', "Select another enemy"]);
