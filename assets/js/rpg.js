@@ -53,7 +53,7 @@ $(document).ready(function () {
 	$('.message').empty();
 
 	// Display a loading message while the window continues to load
-	rpg.message('LOADING...', 60);
+	rpg.message(['LOADING...']);
 
 	// Call new game to load add the gifs to the document
 	rpg.newGame();
@@ -97,7 +97,7 @@ rpg.newGame = function () {
 
 	});
 
-	rpg.message(['<span style="color:red;">Select</span> a character...'],60);
+	rpg.message(['<span style="color:red;">Select</span> a character...']);
 
 	$("div#character-area").css({
 		"display": "flex"
@@ -123,7 +123,7 @@ rpg.chooseCharacter = function (characterId) {
 		// Update the player area
 		$('div.player.one span').css(rpg.buildCssObj(rpg.settings.player));
 		$("#" + characterId).remove();
-		rpg.message(['<span style="color:red;">Select</span> an enemy...'],60);
+		rpg.message(['<span style="color:red;">Select</span> an enemy...']);
 		rpg.arrayPop(rpg.settings.player);
 
 	} else if (rpg.settings.player && !rpg.settings.cpu) {
@@ -141,10 +141,10 @@ rpg.chooseCharacter = function (characterId) {
 
 }
 
-rpg.message = function (messageArray, speed) {
+rpg.message = function (messageArray) {
 	$('.message').typeIt({
 		strings: messageArray,
-		speed: speed,
+		speed: 60,
 		breakLines: false,
 		autoStart: false
 	});
@@ -190,7 +190,7 @@ rpg.startGame = function () {
 		});
 
 		// Update the message area
-		rpg.message(['Click <span class="action">Attack</span> to begin'], 60);
+		rpg.message(['Click <span class="action">Attack</span> to begin']);
 
 		// Update came settings.
 		rpg.settings.playing = true;
@@ -213,7 +213,7 @@ rpg.attack = function () {
 
 	if (rpg.characters[rpg.settings.player].hp <= 0) {
 
-		rpg.message(['<span class="action">You lose!</span>'], 60);
+		rpg.message(['<span class="action">You lose!</span>']);
 
 		$("a.attack-button").css({
 			"display": "none"
@@ -227,7 +227,7 @@ rpg.attack = function () {
 		rpg.arrayPop(rpg.settings.cpu);
 
 		if (rpg.characters.names.length === 0) {
-			rpg.message(['You defeated everyone!', "Click reset!"], 60);
+			rpg.message(['You defeated everyone!', "Click reset!"]);
 			$(".button.reset-button").css({
 				"display": "inline-block",
 				"animation": "pulse 1s infinite"
@@ -237,7 +237,7 @@ rpg.attack = function () {
 			});
 
 		} else {
-			rpg.message(['<span class="action">You win!</span>', "Select another enemy"], 60);
+			rpg.message(['<span class="action">You win!</span>', "Select another enemy"]);
 			rpg.characters[rpg.settings.player].attack = rpg.characters[rpg.settings.player].attack * 2;
 			rpg.settings.cpu = null;
 			rpg.settings.playing = false;
@@ -261,7 +261,7 @@ rpg.attack = function () {
 		rpg.message(['You attacked for <span class="action">' + rpg.characters[rpg.settings.player].attack + ' damage!</span>',
 			rpg.settings.cpu + ' attacked for <span class="action">' + rpg.characters[rpg.settings.cpu].attack + ' damage!</span>',
 			rpg.characters[rpg.settings.player].name + " HP: " + rpg.characters[rpg.settings.player].hp + " | " + rpg.characters[rpg.settings.cpu].name + " HP: " + rpg.characters[rpg.settings.cpu].hp
-		], 60);
+		]);
 	}
 
 }
